@@ -1,5 +1,5 @@
-import scala.collection.mutable
-import scala.collection.mutable.HashMap
+
+import scala.collection.immutable.HashMap
 
 object DroneReport {
 
@@ -14,7 +14,7 @@ object DroneReport {
                     lat_location : Double,
                     long_location : Double,
                     words : List[String],
-                    surround : mutable.HashMap[Identity, Int]
+                    surround : HashMap[Identity, Int]
   )
 
 }
