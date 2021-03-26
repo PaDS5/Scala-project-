@@ -15,8 +15,14 @@ object helloworld {
     val reporttest = Drone(120, 15.4856854, 3.4521684, List("Bien", "Mauvais", "Nul"),temp)
     println("Information du rapport du drone ", reporttest)
 
+    val thread = new Thread {
+      override def run: Unit = {
+          ConsumerDrone.test()
+      }
+    }
+    thread.start()
     ProducerDrone.test(person, reporttest)
-    ConsumerDrone.test()
+
 
   }
 

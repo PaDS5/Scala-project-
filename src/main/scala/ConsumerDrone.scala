@@ -27,13 +27,15 @@ object ConsumerDrone extends App{
     var boold = true
     consumer.seekToBeginning(consumer.assignment())
 
-    while(boold){
+    val time = System.currentTimeMillis()
+
+    while(System.currentTimeMillis() - time < 15000){
       val records = consumer.poll(1000).asScala
       println("ok")
       for(record <- records.iterator){
         if(record.value() > 50){
-          println(record.value())
-          println("Problem " + record.key())
+
+          println("Problem " + record.key() + record.value())
         }
         else {
           println("Ok " + record.value())
@@ -42,7 +44,7 @@ object ConsumerDrone extends App{
 
       boold = false
     }
-
+    print("Time " + time)
   }
 
 
