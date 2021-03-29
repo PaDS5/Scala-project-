@@ -1,4 +1,6 @@
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 import scala.collection.immutable.HashMap
 
 object DroneReport {
@@ -7,6 +9,7 @@ object DroneReport {
                      firstname: String,
                      lastname: String,
                      adress: String,
+                     peacescore: Int
                      )
 
   case class Drone(
@@ -14,7 +17,7 @@ object DroneReport {
                     lat_location : Double,
                     long_location : Double,
                     words : List[String],
-                    surround : HashMap[Identity, Int]
+                    surround : List[Identity]
   )
 
 }

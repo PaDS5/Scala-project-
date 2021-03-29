@@ -6,10 +6,10 @@ import scala.util.Random
 import java.util.{Properties, Timer, TimerTask, concurrent}
 
 object ProducerDrone extends App {
-  def test(identity:DroneReport.Identity,drone: DroneReport.Drone): Unit = {
+  def test(identity:DroneReport.Identity,drone: String): Unit = {
     val topic = "testtopic"
 
-    val iden: String = identity.firstname + "-" + identity.lastname + "-(" + drone.lat_location + "," + drone.long_location + ")"
+    //val iden: String = identity.firstname + "-" + identity.lastname + "-(" + drone.lat_location + "," + drone.long_location + ")"
     val rand = scala.util.Random
     val score = rand.nextInt(100)
     val props = new Properties()
@@ -21,7 +21,7 @@ object ProducerDrone extends App {
     val producer = new KafkaProducer[String, Int](props)
     val timer = new Timer()
     val task = new TimerTask {
-      override def run(): Unit = producer.send(new ProducerRecord(topic, iden, rand.nextInt(100)))
+      override def run(): Unit = producer.send(new ProducerRecord(topic, drone, rand.nextInt(100)))
     }
 
     timer.schedule(task, 1000L, 1000L)

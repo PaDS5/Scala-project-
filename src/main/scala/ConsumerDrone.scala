@@ -31,8 +31,12 @@ object ConsumerDrone extends App{
 
     while(System.currentTimeMillis() - time < 15000){
       val records = consumer.poll(1000).asScala
-      println("ok")
-      for(record <- records.iterator){
+
+      records.foreach(record => {
+        if(record.value()>50){ println("Problem" + record.key() + " " + record.value())}
+        else{println("No problem")}
+       })
+      /*for(record <- records.iterator){
         if(record.value() > 50){
 
           println("Problem " + record.key() + record.value())
@@ -40,7 +44,7 @@ object ConsumerDrone extends App{
         else {
           println("Ok " + record.value())
         }
-      }
+      }*/
 
       boold = false
     }
