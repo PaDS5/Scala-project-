@@ -13,11 +13,11 @@ object DroneReport {
                      )
 
   case class Drone(
-                    id : Int,
+                    id : String,
                     lat_location : Double,
                     long_location : Double,
                     words : List[String],
-                    surround : List[Identity]
+                    surround : Identity
   )
 
 }
