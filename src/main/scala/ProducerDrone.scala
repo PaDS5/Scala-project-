@@ -13,7 +13,7 @@ import java.util.{Properties, Timer, TimerTask, concurrent}
 object ProducerDrone extends App {
   def test(): Unit = {
     val topic = "testtopic"
-
+    val topicfile = "testtopicfile"
     //val iden: String = identity.firstname + "-" + identity.lastname + "-(" + drone.lat_location + "," + drone.long_location + ")"
     val rand = new scala.util.Random
     val score = rand.nextInt(100)
@@ -53,6 +53,7 @@ object ProducerDrone extends App {
         val jsonString = write(reporttest)
         println(jsonString)
         producer.send(new ProducerRecord(topic, jsonString, name.peacescore))
+        producer.send(new ProducerRecord(topicfile, jsonString, name.peacescore))
       }
     }
 

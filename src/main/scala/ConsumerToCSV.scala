@@ -17,7 +17,7 @@ import java.io.{BufferedWriter, File, FileWriter}
 object ConsumerToCSV extends App{
   def test(): Unit = {
 
-    val topic = "testtopic"
+    val topic = "testtopicfile"
 
     val props_con = new Properties()
 
@@ -29,7 +29,7 @@ object ConsumerToCSV extends App{
 
 
     val consumer= new KafkaConsumer[String, Int](props_con)
-    consumer.subscribe(Collections.singletonList("testtopic"))
+    consumer.subscribe(Collections.singletonList("testtopicfile"))
     var boold = true
     consumer.seekToBeginning(consumer.assignment())
 
@@ -51,8 +51,8 @@ object ConsumerToCSV extends App{
         val rec = jvalue.extract[DroneReport.Drone]
         val fd = rec.surround.lastname + "-" + rec.surround.firstname + "-" + rec.surround.adress + "-" + rec.surround.peacescore
         val reted = "(" + rec.words.mkString("-") + ")"
-        val dfgs = "(" + fd.mkString("-") + ")"
-        val formreport = rec.id + "," + rec.lat_location + "," + rec.long_location + "," + reted + "," + dfgs//rec.surround.map(x => x.lastname + "," + x.firstname + "," + x.adress + "," + x.peacescore)
+
+        val formreport = rec.id + "," + rec.lat_location + "," + rec.long_location + "," + reted + "," + rec.surround.lastname + "," + rec.surround.firstname + "," + rec.surround.adress + "," + rec.surround.peacescore//rec.surround.map(x => x.lastname + "," + x.firstname + "," + x.adress + "," + x.peacescore)
         writer.write(formreport)
 
 
