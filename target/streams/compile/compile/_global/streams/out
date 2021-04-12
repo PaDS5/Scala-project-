@@ -1,0 +1,23 @@
+[0m[[0m[31merror[0m] [0m[0m/home/paul/IdeaProjects/testprojectscala/Ex_6_TP1.scala:11:13: not found: value duplicate[0m
+[0m[[0m[31merror[0m] [0m[0m    println(duplicate(List(1, 2, 3, 4, 5)))[0m
+[0m[[0m[31merror[0m] [0m[0m            ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/paul/IdeaProjects/testprojectscala/Ex_6_TP1.scala:12:13: not found: value duplicate_map[0m
+[0m[[0m[31merror[0m] [0m[0m    println(duplicate_map(List(1, 2, 3, 4, 5)))[0m
+[0m[[0m[31merror[0m] [0m[0m            ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/paul/IdeaProjects/testprojectscala/src/main/scala/TP2/TP_MR.scala:3:8: object MapView is not a member of package collection[0m
+[0m[[0m[31merror[0m] [0m[0mimport scala.collection.MapView[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/paul/IdeaProjects/testprojectscala/src/main/scala/TP2/TP_MR.scala:118:182: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : ((Double, Int)) => Double[0m
+[0m[[0m[31merror[0m] [0m[0m required: PartialFunction[(Double, Int),Double][0m
+[0m[[0m[31merror[0m] [0m[0m  def average(values: Iterator[Double]): Option[Double] = if (values.length == 0) None else Some(values.foldLeft((0.0, 0)) { (acc, elem) => (acc._1+elem, acc._2+1) }).collect( elem => elem._1 / elem._2 )[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                                                                                                                                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/paul/IdeaProjects/testprojectscala/src/main/scala/TP2/TP_MR.scala:189:13: value mapValues is not a member of scala.collection.IterableView[(String, Iterable[(String, Double)]),scala.collection.immutable.Map[String,Iterable[(String, Double)]]][0m
+[0m[[0m[31merror[0m] [0m[0m      .view.mapValues(row => row.map { case (departement, rating) => rating }).toMap[0m
+[0m[[0m[31merror[0m] [0m[0m            ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/paul/IdeaProjects/testprojectscala/src/main/scala/TP2/TP_MR.scala:275:96: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : collection.Iterable.type[0m
+[0m[[0m[31merror[0m] [0m[0m required: scala.collection.generic.CanBuildFrom[Nothing,String,Iterable[String]][0m
+[0m[[0m[31merror[0m] [0m[0m    val partitions: Map[String, Iterable[Double]] = getRatingsByDepartement(file.getLines().to(Iterable))[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                                               ^[0m
+[0m[[0m[31merror[0m] [0m[0m6 errors found[0m
