@@ -1,5 +1,6 @@
 import org.apache.spark
 import org.apache.spark.rdd.RDD
+import org.apache.spark.sql.functions.col
 import org.apache.spark.{SparkConf, SparkContext}
 import org.apache.spark.sql.{DataFrame, SparkSession}
 
@@ -21,11 +22,15 @@ object Spark {
   }
 
 
-/**
- *  Now count how much each word appears!
- */
-  def wordcount(): Unit = {
+  def firstlook(): Unit = {
     loadData().show()
+  }
+
+  def peacescorecount(): Unit = {
+    loadData().select("adress").show()
+    val alertnumber = loadData().select("peacescore").filter("peacescore>50").count()
+    println("Total count of alert " + alertnumber)
+
   }
 
 

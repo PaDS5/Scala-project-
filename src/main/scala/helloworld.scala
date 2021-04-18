@@ -54,7 +54,8 @@ object helloworld {
     //thread.start()
     ProducerDrone.test()
     ConsumerToCSV.test()
-    val test = Spark.wordcount()
+    Spark.firstlook()
+    Spark.peacescorecount()
     //print(test)
 
   }
